@@ -1,0 +1,11 @@
+{
+  "concurentRequest": 150,
+  "retries":5,
+  "etcdConfigPath": "fixtures/etcd-dump.json",
+  "dumpFilePath": "dump.json",
+  "backupStrategy": {
+    "keys": ["/keys/all"],
+    "sorted": false,
+    "recursive": false
+  }
+}

@@ -1,0 +1,7 @@
+*.gz
+tmp/
+log/
+*DS_Store
+catalyst_config.yml
+etcd-configuration.json
+etcd-dump.json
