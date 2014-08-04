@@ -5,9 +5,10 @@ etcd-backup is a simple, efficient and lightweight Command line utility to backu
 ## Installation
 
   Installation composed of 3 steps:
-    * Install go [offical documentation](http://golang.org/doc/install/source)
-    * Download the project `git clone git@github.com:ThomasAlxDmy/etcd-backup.git`
-    * Build the binary `cd etcd-backup` and then  `go install`
+
+* Install go [offical documentation](http://golang.org/doc/install/source)
+* Download the project `git clone git@github.com:ThomasAlxDmy/etcd-backup.git`
+* Build the binary `cd etcd-backup` and then  `go install`
 
 ## Dumping
 
@@ -23,11 +24,12 @@ The backup strategy can be overwritten in the etcd-backup configuration file. Se
 
 ### Command line options and default values
 
-  `-config` Mandatory etcd-backup configuration file location, default value: "backup-configuration.json". See [Configuration section](#config) for more information.
-  `-concurent-request` Number of concurent resquest that will be executed during the restore(restore mode only), default value is 10.
-  `-retries` Number of retires that will be executed if the requests fail, default value is 5.
-  `-etcd-config` Mandatory etcd configuration file location, default value: "etcd-configuration.json". See fixtures folder for an example.
-  `-dump` Location of the dump file data will be store in (in case of a dump) or load from (in case of a restore), default value: "etcd-dump.json".
+  `-config` Mandatory etcd-backup configuration file location, default value: "backup-configuration.json". See [Configuration section](#config) for more information.<br/>
+  `-concurent-request` Number of concurent resquest that will be executed during the restore(restore mode only), default value is 10.<br/>
+  `-retries` Number of retires that will be executed if the requests fail, default value is 5.<br/>
+  `-etcd-config` Mandatory etcd configuration file location, default value: "etcd-configuration.json". See fixtures folder for an example.<br/>
+  `-dump` Location of the dump file data will be store in (in case of a dump) or load from (in case of a restore), default value: "etcd-dump.json".<br/>
+
 
     $ etcd-dump -config=myBackupConfig.json -retries=2 -etcd-config=myClusterConfig.json -dump=result.json dump
 
@@ -65,11 +67,11 @@ Restore the keys from the `etcd-dump.json` file.
 
 ### Command line options and default values
 
-  `-config` Mandatory etcd-backup configuration file location, default value: "backup-configuration.json". See [Configuration section](#config) for more information.
-  `-concurent-request` Number of concurent resquest that will be executed during the restore(restore mode only), default value is 10.
-  `-retries` Number of retires that will be executed if the requests fail, default value is 5.
-  `-etcd-config` Mandatory etcd configuration file location, default value: "etcd-configuration.json". See fixtures folder for an example.
-  `-dump` Location of the dump file data will be store in (in case of a dump) or load from (in case of a restore), default value: "etcd-dump.json".
+  `-config` Mandatory etcd-backup configuration file location, default value: "backup-configuration.json". See [Configuration section](#config) for more information.<br/>
+  `-concurent-request` Number of concurent resquest that will be executed during the restore(restore mode only), default value is 10.<br/>
+  `-retries` Number of retires that will be executed if the requests fail, default value is 5.<br/>
+  `-etcd-config` Mandatory etcd configuration file location, default value: "etcd-configuration.json". See fixtures folder for an example.<br/>
+  `-dump` Location of the dump file data will be store in (in case of a dump) or load from (in case of a restore), default value: "etcd-dump.json".<br/>
 
     $ etcd-dump -config=myBackupConfig.json -retries=2 -etcd-config=myClusterConfig.json -dump=dataset.json -concurent-request=100 restore
 
