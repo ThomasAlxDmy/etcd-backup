@@ -35,7 +35,8 @@ func RestoreDataSet(backupKeys []BackupKey, config *Config, etcdClient EtcdClien
 	var wg sync.WaitGroup
 	wg.Add(len(backupKeys))
 
-	for _, backupKey := range backupKeys {
+	for index := range backupKeys {
+		backupKey := backupKeys[index]
 		throttle <- 1
 		go RestoreKey(&backupKey, statistics, &wg, throttle, etcdClient)
 	}
