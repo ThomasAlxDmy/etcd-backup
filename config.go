@@ -53,16 +53,21 @@ func LoadConfig(configPath *string, commandLineConfig *Config) *Config {
 }
 
 func parseCommandLineOptions() (*string, *Config) {
-	config := Config{}
 	configPath := flag.String("config", "backup-configuration.json", "Location of the backup configuration file")
-	config.ConcurentRequest = *flag.Int("concurent-request", 10, "Maximum limit of goroutines talking to etcd at a time")
-	config.Retries = *flag.Int("retries", 5, "Number of retries before the program give up on failing request")
-	config.EtcdConfigPath = *flag.String("etcd-config", "etcd-configuration.json", "Location of the etcd config file")
-	config.DumpFilePath = *flag.String("dump", "etcd-dump.json", "Location of the etcd dump file")
-	config.BackupStrategy = &BackupStrategy{[]string{"/"}, true, true}
+	concurentRequest := flag.Int("concurent-request", 10, "Maximum limit of goroutines talking to etcd at a time")
+	retries := flag.Int("retries", 5, "Number of retries before the program give up on failing request")
+	etcdConfigPath := flag.String("etcd-config", "etcd-configuration.json", "Location of the etcd config file")
+	dumpFilePath := flag.String("dump", "etcd-dump.json", "Location of the etcd dump file")
+	backupStrategy := &BackupStrategy{[]string{"/"}, true, true}
 
 	flag.Parse()
-	return configPath, &config
+	return configPath, &Config{
+		ConcurentRequest: *concurentRequest,
+		Retries:          *retries,
+		EtcdConfigPath:   *etcdConfigPath,
+		DumpFilePath:     *dumpFilePath,
+		BackupStrategy:   backupStrategy,
+	}
 }
 
 func loadConfigFile(configPath *string) *Config {

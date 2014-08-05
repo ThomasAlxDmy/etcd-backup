@@ -100,14 +100,17 @@ func setKey(backupKey *BackupKey, etcdClient EtcdClient) (*etcd.Response, error)
 	if err != nil {
 		err = errors.New("Error when trying to set the following key: " + backupKey.Key + ". Error: " + err.Error())
 	}
-
 	return response, err
 }
 
 func setDirectory(backupKey *BackupKey, etcdClient EtcdClient) (*etcd.Response, error) {
 	response, err := etcdClient.SetDir(backupKey.Key, uint64(backupKey.TTL))
-	if err != nil && err.(*etcd.EtcdError) != nil && err.(*etcd.EtcdError).ErrorCode != 102 {
-		err = errors.New("Error when trying to set the following directory : " + backupKey.Key + ". Error: " + err.Error())
+	if err != nil {
+		if err.(*etcd.EtcdError) != nil && err.(*etcd.EtcdError).ErrorCode != 102 {
+			err = errors.New("Error when trying to set the following directory : " + backupKey.Key + ". Error: " + err.Error())
+		} else {
+			err = nil
+		}
 	}
 
 	return response, err
