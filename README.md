@@ -2,12 +2,17 @@
 
 etcd-backup is a simple, efficient and lightweight Command line utility to backup and restore [etcd](https://github.com/coreos/etcd) keys.
 
+## Dependencies
+
+etcd-backup has only one dependency: go-etcd [the golang offical library for ETCD](https://github.com/coreos/go-etcd)
+
 ## Installation
 
   Installation composed of 3 steps:
 
 * Install go [offical documentation](http://golang.org/doc/install/source)
 * Download the project `git clone git@github.com:ThomasAlxDmy/etcd-backup.git`
+* Download the dependency `go get github.com/coreos/go-etcd/etcd`
 * Build the binary `cd etcd-backup` and then  `go install`
 
 ## Dumping
