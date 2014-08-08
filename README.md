@@ -1,3 +1,9 @@
+
+Repository moved to [FanTV repository](https://github.com/fanhattan/etcd-backup)
+
+<br/><br/><br/>
+
+
 # etcd-backup
 
 etcd-backup is a simple, efficient and lightweight Command line utility to backup and restore [etcd](https://github.com/coreos/etcd) keys.
